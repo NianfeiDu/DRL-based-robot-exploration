@@ -27,17 +27,9 @@ from actionlib_msgs.msg import GoalStatus
 from cv2 import sqrt
 from gazebo_msgs.msg import ModelState
 from gazebo_msgs.srv import SetModelState
-from geometry_msgs.msg import (
-    Point,
-    PointStamped,
-    Pose,
-    PoseStamped,
-    PoseWithCovarianceStamped,
-    Quaternion,
-    TransformStamped,
-    Twist,
-    Vector3,
-)
+from geometry_msgs.msg import (Point, PointStamped, Pose, PoseStamped,
+                               PoseWithCovarianceStamped, Quaternion,
+                               TransformStamped, Twist, Vector3)
 from gym import spaces
 from nav_msgs.msg import MapMetaData, OccupancyGrid, Odometry
 from nav_msgs.srv import GetPlan
@@ -303,75 +295,3 @@ if __name__ == "__main__":
     while env.done is False:
         env.nf_nav2(0)
         rospy.sleep(0.2)
-    # dt_now = datetime.datetime.now()
-    # fpath = "/home/nianfei/ros_ws/src/dqn_for_slam/dqn_for_slam/log/maze7_trace/nf_trace_{}_{}{}{}.txt".format(
-    #     env.total_step, dt_now.month, dt_now.day, dt_now.hour
-    # )
-    # with open(fpath, "w+") as f:
-    #     f.write(pprint.pformat(env.full_trace))
-
-    """ "move base test"""
-    # make_plan = rospy.ServiceProxy("/move_base/make_plan", GetPlan)
-    # env = robot_rl_env.RobotEnv()
-    # goal = env.setupGoals(2, -2)
-    # plan_start, plan_goal, plan_tolerance = env.set_plan_goal((2, -2))
-    # # get trajectory using servise move_base
-    # plan_response = make_plan(plan_start, plan_goal, plan_tolerance)
-    # env.navigateToGoal(goal)
-    # trace_list = []
-    # plan_x = np.empty((len(plan_response.plan.poses), 1))
-    # plan_y = np.empty((len(plan_response.plan.poses), 1))
-    # i = 0
-    # for plan_pose in plan_response.plan.poses:
-    #     plan_x[i] = plan_pose.pose.position.x  # x
-    #     plan_y[i] = plan_pose.pose.position.y  # y
-    #     trace_list.append((plan_x[i][0], plan_x[i][0]))
-    #     # plan_w[i] = plan_pose.pose.orientation.w  #w
-    #     i = i + 1
-    # # trace_list = trace_list[::5, :]
-    # pprint(trace_list)
-    # env.navigateToGoal(goal)
-    # print(env.observation_space.shape)
-    # for _ in range(50):
-    #     act = env.action_space.sample()
-    #     env.step(act)
-    # rospy.init_node("tesp")
-
-    """
-    # a step for env
-    while True:
-        cen = None
-        # wait for valid act and center
-        while cen is None:
-            act = env.action_space.sample()
-            env.process()
-            cen = env.valid_act(act)
-            print("cents_sorted_world")
-            pprint(env.cents_sorted_world)
-
-            pprint(env.valid_act_list(), width=10)
-        print("cen", cen, "odom", env.odom, "act", act)
-        try:
-            goal = env.setupGoals(cen[0], cen[1])
-            rospy.logwarn("go to: {}".format(goal))
-            env.navigateToGoal(goal)
-            manh_list = []
-            while str(env.client.get_state()) != "3":
-                env.callback_odom()
-                manh = abs(env.odom[0] - cen[0]) + abs(env.odom[1] - cen[1])
-                if len(manh_list) < 100:
-                    manh_list.append(manh)
-                else:
-                    manh_list.pop(0)
-                    manh_list.append(manh)
-                    if sum(manh_list) / 100 < 0.5:
-                        print("almost move to the goal ", cen)
-                        break
-                    if sum(manh_list) / 100 > 0.5 and np.std(np.array(manh_list)) < 4:
-                        print("stuck at ", cen)
-                        break
-                rospy.sleep(0.02)
-
-            env.resetCostmaps()
-        except:
-            print(traceback.print_exc())"""
