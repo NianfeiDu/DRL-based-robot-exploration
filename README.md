@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.org/kuwabaray/ros_rl_for_slam.svg?branch=main)](https://travis-ci.org/kuwabaray/ros_rl_for_slam)
 # Training a DQN model for robot exploration in ROS and Gazebo environment
 This projecr is used for my gruduation design Deep Reinforcement Learning Based Autonomous Exploration in office Environments, it simulates `Rosbot` movement on Gazebo and trains a rainforcement learning model DQN.DQN model is mainly used for choose a frontiner as next exploration target.
 The model formulation process can reference to this thesis [Deep Reinforcement Learning Supervised Autonomous Exploration in Office Environments](https://ieeexplore.ieee.org/abstract/document/8463213), the source code and frame mainly reference to [kuwabaray/ros_rl_for_slam](https://github.com/kuwabaray/ros_rl_for_slam)
