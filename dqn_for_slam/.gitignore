@@ -1,0 +1,5 @@
+__pycache__/
+dqn_for_slam/models/*
+dqn_for_slam/figures/*
+dqn_for_slam/log/*
+dqn_for_slam/reward/*
