@@ -23,12 +23,12 @@ ros package
 * robot_localization
 * navigation
 
-find `requirements.yaml` to see all environment
+find `requirements.yaml` to see all environment.
 
 ## Usage
 Start trainning process by runing the commod below in order.
-FIXME: a lot of absloate path lies in `rl_worker.py` and `robot_rl_env.py`, fix it before running that
- ```bash
+FIXME: a lot of absloate path lies in `rl_worker.py` and `robot_rl_env.py`, fix it before running.
+```bash
 roslaunch simulation_map maze1_nogui.launch
 roslaunch simulate_robot_rl simulate_robot.launch
 roslaunch mynav pathplan.launch
@@ -37,5 +37,5 @@ python ./dqn_for_slam/dqn_for_slam/rl_worker.py
 Trained models are saved to ~/dqn\_for\_slam/dqn\_for\_slam/models/
 
 ## Author
-mail:nianfeifly@163.com
+mail: nianfeifly@163.com
 
