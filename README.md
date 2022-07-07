@@ -27,7 +27,7 @@ find `requirements.yaml` to see all environment.
 
 ## Usage
 Start trainning process by runing the commod below in order.
-FIXME: a lot of absloate path lies in `rl_worker.py` and `robot_rl_env.py`, fix it before running.
+FIXME: a lot of absoluate path lies in `rl_worker.py` and `robot_rl_env.py`, fix it before running.
 ```bash
 roslaunch simulation_map maze1_nogui.launch
 roslaunch simulate_robot_rl simulate_robot.launch
