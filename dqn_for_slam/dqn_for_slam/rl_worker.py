@@ -7,7 +7,7 @@ import sys
 import traceback
 from statistics import mode
 
-sys.path.append("./src/dqn_for_slam")
+sys.path.append("/home/nianfei/ros_ws/src/dqn_for_slam")
 import gym
 import numpy as np
 import tensorflow as tf
